@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.menu-card {
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 400px;
+  margin: 20px;
+  cursor: move;
+}
+
+.menu-item {
+  margin-bottom: 25px;
+}
+
+.menu-header {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f4a460;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.menu-price {
+  font-size: 14px;
+  color: #ddd;
+  margin-left: 280px;
+  position: absolute;
+  margin-top: -25px;
+  color: #f4a460;
+  font-weight: 900;
+  
+}
+
+.menu-description {
+  font-size: 14px;
+  color: #888;
+  font-style: italic;
+  margin: 5px 0;
+}
+
+.fraction {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.fraction span {
+  display: block;
+  padding: 0.1em;
+}
+
+.fraction span:first-child {
+  border-bottom: 1px solid #fff;
+}
+
+</style>
+</head>
+<body>
+
+<div class="menu-card" id="draggableCard">
+  <div class="menu-item">
+    <div class="menu-header">YANAHUARINO</div>
+    <div class="menu-price">s/.33  s/.43</div>
+    <div class="menu-description">Chorizo, pepperoni, pollo,</div>
+    <div class="menu-description">champiñon, pimenton ,</div>
+    <div class="menu-description">durazno.</div>
+  </div>
+  
+
+  <div class="menu-item">
+    <div class="menu-header">JHAYACHA 
+        (PICANTE)</div>
+    <div class="menu-price">s/.32  s/.42</div>
+    <div class="menu-description">Chorizo, cabanossi, pepperoni,</div>
+    <div class="menu-description">aceituna verde, aji limo.</div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-header">PACHACÚTEC</div>
+    <div class="menu-price">s/.45  s/.55</div>
+    <div class="menu-description">Lomo de alpaca ahumado,</div>
+    <div class="menu-description">pimenton, quinua mixta,</div>
+    <div class="menu-description">cebolla blanca.</div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-header">MIXTA</div>
+    <div class="menu-price">s/.33  s/.43</div>
+    <div class="menu-description">Pepperoni, jamon, tocino, </div>
+    <div class="menu-description">salchicha, champiñon.</div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-header">ANDINA</div>
+    <div class="menu-price">s/.30  s/.40</div>
+    <div class="menu-description">Chorizo, choclo, caigua, </div>
+    <div class="menu-description">albahaca, champiñon.
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-header">HAWAIANA</div>
+    <div class="menu-price">s/.33  s/.43</div>
+    <div class="menu-description">Jamon, champiñon, piña.</div>
+  </div>
+</div>
+
+<script>
+// Make the card draggable
+const card = document.getElementById('draggableCard');
+let isDragging = false;
+let currentX;
+let currentY;
+let initialX;
+let initialY;
+let xOffset = 0;
+let yOffset = 0;
+
+card.addEventListener("mousedown", dragStart);
+document.addEventListener("mousemove", drag);
+document.addEventListener("mouseup", dragEnd);
+
+function dragStart(e) {
+    initialX = e.clientX - xOffset;
+    initialY = e.clientY - yOffset;
+
+    if (e.target === card) {
+        isDragging = true;
+    }
+}
+
+function drag(e) {
+    if (isDragging) {
+        e.preventDefault();
+        currentX = e.clientX - initialX;
+        currentY = e.clientY - initialY;
+
+        xOffset = currentX;
+        yOffset = currentY;
+
+        setTranslate(currentX, currentY, card);
+    }
+}
+
+function setTranslate(xPos, yPos, el) {
+    el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+}
+
+function dragEnd(e) {
+    initialX = currentX;
+    initialY = currentY;
+    isDragging = false;
+}
+</script>
+
+</body>
+</html>
