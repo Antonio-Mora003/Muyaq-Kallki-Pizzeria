@@ -1,64 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-.menu-card {
-  background: #000;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  max-width: 400px;
-  margin: 20px;
-  cursor: move;
-}
-
-.menu-item {
-  margin-bottom: 25px;
-}
-
-.menu-header {
-  font-size: 18px;
-  font-weight: bold;
-  color: #f4a460;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  font-weight: 900;
-}
-
-.menu-price {
-  font-size: 14px;
-  color: #ddd;
-  margin-left: 280px;
-  position: absolute;
-  margin-top: -25px;
-  color: #f4a460;
-  font-weight: 900;
-  
-}
-
-.menu-description {
-  font-size: 14px;
-  color: #888;
-  font-style: italic;
-  margin: 5px 0;
-}
-
-.fraction {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.fraction span {
-  display: block;
-  padding: 0.1em;
-}
-
-.fraction span:first-child {
-  border-bottom: 1px solid #fff;
-}
-
-</style>
+    <style>
+        /* Estilo general */
+        body {
+          margin: 0;
+          padding: 0;
+          background: #000;
+          color: #fff;
+          font-family: Arial, sans-serif;
+        }
+        
+        /* Contenedor principal */
+        .menu-card {
+          background: #000;
+          color: #fff;
+          font-family: Arial, sans-serif;
+          padding: 20px;
+          margin-top: 150px;
+          width: 400px; /* Ancho fijo */
+          margin-left: 560px; /* Centrado */
+          cursor: default; /* Deshabilita el movimiento en móviles */
+          position: relative; /* Fija su posición */
+          box-sizing: border-box; /* Incluye el padding en el ancho total */
+        }
+        
+        /* Elementos del menú */
+        .menu-item {
+          margin-bottom: 25px;
+          position: relative; /* Asegura que los precios estén bien colocados */
+        }
+        
+        .menu-header {
+          font-size: 18px;
+          font-weight: bold;
+          color: #f4a460;
+          margin-bottom: 10px;
+          text-transform: uppercase;
+        }
+        
+        .menu-price {
+          font-size: 14px;
+          color: #f4a460;
+          position: absolute;
+          right: 0; /* Fija los precios a la derecha */
+          top: 0; /* Fija al borde superior */
+          font-weight: bold;
+        }
+        
+        .menu-description {
+          font-size: 14px;
+          color: #888;
+          font-style: italic;
+          margin: 5px 0;
+        }
+        
+        /* Evita cambios en dispositivos móviles */
+        @media (max-width: 768px) {
+          .menu-card {
+            width: 400px; /* Mantiene un ancho fijo */
+            margin: 20px auto; /* Centrado */
+          }
+        
+          .menu-header {
+            font-size: 18px; /* Mantiene el tamaño original */
+          }
+        
+          .menu-price {
+            font-size: 14px;
+            position: absolute; /* Fija los precios */
+            right: 0;
+            top: 0;
+          }
+        
+          .menu-description {
+            font-size: 14px;
+            line-height: 1.5;
+          }
+        }
+        </style
 </head>
 <body>
 
